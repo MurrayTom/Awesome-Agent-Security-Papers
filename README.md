@@ -179,6 +179,15 @@ Skill 调用第三方 MCP 工具时，工具返回是否可能包含恶意指令
 | InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents | [ACL 2024 Findings](https://aclanthology.org/2024.findings-acl.624/) |提出 InjecAgent 基准，系统评估了工具型LLM智能体在间接提示注入攻击下的脆弱性，发现其存在显著安全风险。| Attack |
 | Agent Security Bench (ASB): Formalizing and Benchmarking Attacks and Defenses in LLM-based Agents | [ICLR 2025](https://arxiv.org/pdf/2410.02644) |该工作提出 ASB 基准框架，系统评估LLM智能体在多种攻击下的安全性，发现其存在高达84.3%的严重漏洞且现有防御效果有限。四类攻击方式：直接提示注入（DPI），间接提示注入（IPI），记忆污染（Memory Poisoning），规划链后门攻击（POT Backdoor Attack） | Attack |
 | AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents | [NeurIPS 2024 D&B](https://arxiv.org/abs/2406.13352) | 该工作提出 AgentDojo 这一可扩展评测框架，用于评估工具调用智能体在间接提示注入攻击下的鲁棒性，提供了四种环境 | Attack |
+| ToolSword: Unveiling Safety Issues of Large Language Models in Tool Learning Across Three Stages | [ACL 2024](https://arxiv.org/abs/2402.10753) | 提出 ToolSword 框架，系统分析工具学习中LLM在输入、执行和输出阶段的多类安全风险（包括提示注入攻击），并表明包括GPT-4在内的模型仍存在显著安全隐患。 | Attack |
+| LlamaFirewall: An open source guardrail system for building secure AI agents | [Arxiv](https://arxiv.org/abs/2505.03574) | 该工作提出 LlamaFirewall 作为AI智能体的最后一道安全防线，通过越狱检测、推理过程审计和代码安全分析三种机制，有效缓解提示注入、目标偏移及不安全代码等风险。 | Defense |
+| AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents | [NeurIPS 2025](https://arxiv.org/abs/2506.00641) | 提出 AgentAuditor，一种无需训练的记忆增强评估框架，通过模拟人类专家推理显著提升LLM对智能体安全与风险的评估能力，并在新基准 ASSEBench 上达到接近人类水平的性能。 | Defense/Evaluation |
+| Think Twice Before You Act: Enhancing Agent Behavioral Safety with Thought Correction | [Arxiv](https://arxiv.org/abs/2505.11063) | 提出 Thought-Aligner，一种动态思维纠正模块，通过在每次行动前修正高风险推理过程，将智能体安全性从约50%提升至90%，且无需修改原有框架、具备高效易部署的特点。 | Defense |
+| VeriGuard: Enhancing LLM Agent Safety via Verified Code Generation | [Arxiv](https://arxiv.org/abs/2510.05156) | 提出 VeriGuard 框架，通过“离线形式化验证 + 在线行为监控”的双阶段机制，为LLM智能体提供可验证的安全保证 | Defense |
+| Agent Safety Alignment via Reinforcement Learning | [Link]() |-------|Defense (Alignment)|
+| AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic Large Language Models | [Link]() |-------|Defense (Alignment)|
+| Towards Tool Use Alignment of Large Language Models | [EMNLP 2024](https://aclanthology.org/2024.emnlp-main.82/) |-------|Defense (Alignment)|
+| ToolSafety: A Comprehensive Dataset for Enhancing Safety in LLM-Based Agent Tool Invocations | [EMNLP 2025](https://aclanthology.org/2025.emnlp-main.714/) |-------|Defense (Alignment)|
 ---
 
 ## BibTex
