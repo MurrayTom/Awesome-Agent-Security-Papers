@@ -176,9 +176,9 @@ Skill 执行系统操作时，是否可能被注入恶意命令或操作系统�
 Skill 调用第三方 MCP 工具时，工具返回是否可能包含恶意指令，影响模型行为。
 | Title | Link | Description | Category(Attack or Defense) |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
-
+| InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents | [ACL 2024 Findings](https://aclanthology.org/2024.findings-acl.624/) |提出 InjecAgent 基准，系统评估了工具型LLM智能体在间接提示注入攻击下的脆弱性，发现其存在显著安全风险。| Attack |
+| Agent Security Bench (ASB): Formalizing and Benchmarking Attacks and Defenses in LLM-based Agents | [ICLR 2025](https://arxiv.org/pdf/2410.02644) |该工作提出 ASB 基准框架，系统评估LLM智能体在多种攻击下的安全性，发现其存在高达84.3%的严重漏洞且现有防御效果有限。四类攻击方式：直接提示注入（DPI），间接提示注入（IPI），记忆污染（Memory Poisoning），规划链后门攻击（POT Backdoor Attack） | Attack |
+| AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents | [NeurIPS 2024 D&B](https://arxiv.org/abs/2406.13352) | 该工作提出 AgentDojo 这一可扩展评测框架，用于评估工具调用智能体在间接提示注入攻击下的鲁棒性，提供了四种环境 | Attack |
 ---
 
 ## BibTex
