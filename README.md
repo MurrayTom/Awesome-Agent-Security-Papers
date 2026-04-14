@@ -218,6 +218,19 @@ Skill 调用第三方 MCP 工具时，工具返回是否可能包含恶意指令
 | AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic Large Language Models | [Link]() |-------|Defense (Alignment)|
 | Towards Tool Use Alignment of Large Language Models | [EMNLP 2024](https://aclanthology.org/2024.emnlp-main.82/) |-------|Defense (Alignment)|
 | ToolSafety: A Comprehensive Dataset for Enhancing Safety in LLM-Based Agent Tool Invocations | [EMNLP 2025](https://aclanthology.org/2025.emnlp-main.714/) |-------|Defense (Alignment)|
+| PIArena: A Platform for Prompt Injection Evaluation | [ACL 2026 Main](https://arxiv.org/abs/2604.08499) | 提出 PIArena 这一统一且可扩展的提示注入评测平台，支持对多种攻击、 防御与基准进行即插即用式系统评估 | Attack/Defense/Benchmark |
+| AgentDyn: A Dynamic Open-Ended Benchmark for Evaluating Prompt Injection Attacks of Real-World Agent Security System | [ArXiv 2026](https://arxiv.org/abs/2602.03117) | 提出 AgentDyn，一个面向真实世界智能体安全系统的动态开放式提示注入评测基准 | Attack/Benchmark |
+| Benchmarking and Defending against Indirect Prompt Injection Attacks on Large Language Models | [KDD 2025](https://arxiv.org/abs/2312.14197) | 提出针对间接提示注入攻击的系统化评测基准 BIPIA，系统评估了多种 LLM 在外部内容注入场景下的脆弱性，发现模型普遍容易混淆“信息内容”和“可执行指令” | Defense/Benchmark |
+| AUTOHIJACKER: AUTOMATIC INDIRECT PROMPT INJECTION AGAINST BLACK-BOX LLM AGENTS | [ArXiv 2025](https://openreview.net/forum?id=2VmB01D9Ef) | 提出 AutoHijacker，一种面向黑盒 LLM 智能体的自动化间接提示注入攻击方法。该方法基于 LLM-as-optimizer，设计了批量优化框架以应对稀疏反馈，并结合可训练记忆机制减少持续查询开销 | Attack |
+| MUZZLE: Adaptive Agentic Red-Teaming of Web Agents Against Indirect Prompt Injection Attacks | [ArXiv 2026](https://arxiv.org/abs/2602.09222) | 提出 MUZZLE，一个面向 Web Agent 的自动化、自适应红队攻击框架。该方法利用智能体执行轨迹自动识别高价值注入位置，并结合上下文感知的恶意指令生成与失败反馈迭代优化 | Attack |
+| Prompt Injection attack against LLM-integrated Applications | [ArXiv 2023](https://arxiv.org/abs/2306.05499) | 系统研究了真实世界 LLM 集成应用中的提示注入风险，并提出黑盒自动化攻击框架 HouYi。该方法借鉴传统 Web 注入攻击思想，通过预构造提示、上下文分隔注入和恶意载荷三部分实现对应用的攻击 | Attack |
+| TopicAttack: An Indirect Prompt Injection Attack via Topic Transition | [EMNLP 2025 main](https://aclanthology.org/2025.emnlp-main.372/) | 提出 TopicAttack，一种通过“话题过渡”实现的间接提示注入攻击方法。该方法先伪造一段自然的用户-助手对话式过渡提示，将模型注意力从原始任务平滑转移到恶意指令上，从而提升注入的隐蔽性与成功率 | Attack |
+| Formalizing and Benchmarking Prompt Injection Attacks and Defenses | [USENIX Security 2024](https://arxiv.org/abs/2310.12815) | 提出首个用于形式化描述提示注入攻击的统一框架，并在此基础上系统评测了 5 类攻击、10 种防御、10 个 LLM 与 7 类任务；结果表明现有防御整体效果有限，同时论文还基于该框架构造了组合型新攻击，并开源 Open-Prompt-Injection 平台以支持后续研究。 | Attack/Defense |
+| AgentLAB: Benchmarking LLM Agents against Long-Horizon Attacks | [ArXiv 2026](https://arxiv.org/abs/2602.16901) | 提出 AgentLAB，这是首个专门评测 LLM 智能体在长时程攻击下脆弱性的基准，覆盖 28 个真实环境、644 个安全测试样例，并包含意图劫持、工具链攻击、任务注入、目标漂移和记忆污染 5 类新型长程攻击 | Attack/Benchmark |
+| Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | [ArXiv 2026](https://arxiv.org/abs/2602.13379) | 提出首个面向多轮工具型智能体安全的基准 MT-AgentRisk，通过一套原则化分类体系将单轮有害任务系统转化为多轮攻击序列，系统评估了多轮交互下的安全退化现象;同时提出无需训练、与工具无关的防御方法 ToolShield，通过对新工具进行自探索式安全测试与经验蒸馏，将多轮交互中的攻击成功率平均降低约 30%。 | Defense/Benchmark |
+| AdapTools: Adaptive Tool-based Indirect Prompt Injection Attacks on Agentic LLMs | [ArXiv 2026](https://arxiv.org/abs/2602.20720) | 提出 AdapTools，一种面向 Agentic LLM 的自适应工具型间接提示注入攻击框架。该方法一方面自动构造可迁移的攻击策略以优化恶意提示，另一方面通过选择更隐蔽且任务相关的攻击工具来绕过相关性防御，从而显著增强攻击效果 | Attack |
+| The Ranking Blind Spot: Decision Hijacking in LLM-based Text Ranking | [EMNLP 2025 main](https://aclanthology.org/2025.emnlp-main.1116/) | 不是典型agent IPI的论文，关注的是rank任务里如果被排序内容注入了攻击内容来影响排序结果，提出“Ranking Blind Spot”现象，系统揭示了 LLM 文本排序器在比较式评估中会受到指令跟随能力干扰，并进一步设计了两类决策劫持攻击：Decision Objective Hijacking 与 Decision Criteria Hijacking，使恶意内容提供方能够操纵排序目标或相关性标准，从而影响文档排序结果 | Attack |
+| Reasoning Hijacking: Subverting LLM Classification via Decision-Criteria Injection | [ACL 2026](https://arxiv.org/abs/2601.10294) | 提出 Reasoning Hijacking，新型攻击范式不直接改变模型的高层任务目标，而是通过注入伪造的决策标准来操纵模型内部判断逻辑；作者进一步实例化出 Criteria Attack，并在垃圾邮件检测、毒性评论识别和差评识别等分类任务上验证其有效性 | Attack |
 ---
 
 ## BibTex
