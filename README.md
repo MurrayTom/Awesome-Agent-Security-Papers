@@ -119,8 +119,25 @@ Skill 脚本或指令是否存在安全漏洞，如缓冲区溢出、异常执�
 Skill 是否包含恶意 Prompt 注入，篡改或误导模型行为。
 | Title | Link | Description | Category(Attack or Defense) |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| Ignore Previous Prompt: Attack Techniques For Language Models | [**NeurIPS 2022 ML Safety**](https://arxiv.org/pdf/2211.09527) | 首次系统性提出提示注入概念，定义了目标劫持与提示泄露，发现模型能力越强越易受攻击。 | Attack |
+| Prompt Injection Attack Against LLM-integrated Applications | [**arXiv 2023**](https://arxiv.org/pdf/2306.05499) | 提出 HOUYI 三阶段攻击框架，利用上下文分割技术绕过防御，将攻击扩展至集成应用。 | Attack |
+| Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection | [**ACM AISec 2023**](https://arxiv.org/pdf/2309.01454) | 首次提出间接提示注入（IPI），通过污染第三方网页或文档远程控制 LLM。 | Attack |
+| Strengthening LLM Trust Boundaries: A Survey of Prompt Injection Attacks | [**IEEE ICHMS 2024**](https://arxiv.org/pdf/2310.03684) | 提出五层攻击利用框架，从三个维度系统分析提示注入，建立层次化防御架构。 | Attack/Defense |
+| Trust No AI: Prompt Injection Along the CIA Security Triad | [**arXiv 2024**](https://arxiv.org/pdf/2412.06090) | 从 CIA 安全三元组视角分析，涵盖提示泄露、沙箱逃逸等七种系统性攻击方法。 | Attack |
+| Backdooring Instruction-Tuned Large Language Models with Virtual Prompt Injection | [**NAACL 2024**](https://arxiv.org/pdf/2402.05298) | 提出虚拟提示注入（VPI），通过少量投毒数据在训练中嵌入恶意行为触发后门。 | Attack |
+| Simple Prompt Injection Attacks Can Leak Personal Data Observed by LLM Agents During Task Execution | [**arXiv 2025**](https://arxiv.org/pdf/2506.01055) | 揭示 Agent 在执行多步任务时，其处理的数据流可被渗透导致中间敏感信息泄露。 | Attack |
+| PLeak: Prompt Leaking Attacks against Large Language Model Applications | [**ACM CCS 2024**](https://arxiv.org/pdf/2406.09324) | 提出 PLeak 框架，利用增量搜索高效提取开发者保密的系统提示。 | Attack |
+| Baseline Defenses for Adversarial Attacks against Aligned Language Models | [**arXiv 2023**](https://arxiv.org/pdf/2309.00614) | 系统评估困惑度、过滤等基线防御，发现单一机制难以平衡安全性和实用性。 | Defense |
+| SmoothLLM: Defending Large Language Models Against Jailbreaking Attacks | [**arXiv 2023**](https://arxiv.org/pdf/2310.03684) | 基于随机扰动和预测聚合的防御框架，通过字符级扰动破坏对抗后缀。 | Defense |
+| Certifying LLM Safety against Adversarial Prompting | [**arXiv 2023/2024**](https://arxiv.org/pdf/2309.02705) | 提出 Erase-and-Check，首个提供形式化可证明安全保证（安全证书）的防御框架。 | Defense |
+| Defending Large Language Models against Jailbreak Attacks via Semantic Smoothing | [**arXiv 2024**](https://arxiv.org/pdf/2402.16192) | 采用语义保持变换（释义、风格转换）和预测聚合，提供比 token 级更鲁棒的防御。 | Defense |
+| Self-Guard: Empower the LLM to Safeguard Itself | [**NAACL 2024**](https://arxiv.org/pdf/2310.15851) | 两阶段训练法使 LLM 具备自我审查能力，在输出端附加安全标签进行实时管控。 | Defense |
+| Defending Large Language Models against Jailbreaking Attacks through Goal Prioritization | [**ACL 2024**](https://arxiv.org/pdf/2311.09096) | 通过特殊指令在推理和训练阶段强化原始任务优先级，防止系统目标被覆盖。 | Defense |
+| MRJ-Agent: An Effective Jailbreak Agent for Multi-Round Dialogue | [**arXiv 2024**](https://arxiv.org/pdf/2411.03814) | 针对多轮对话场景设计的攻击 Agent，自动分析上下文并生成隐蔽越狱提示。 | Attack |
+| PrivAgent: Agentic-based Red-teaming for LLM Privacy Leakage | [**arXiv 2024**](https://arxiv.org/pdf/2412.05734) | 利用强化学习训练攻击 Agent，诱导目标模型泄露系统提示或训练数据。 | Attack |
+| Evil Geniuses: Delving into the Safety of LLM-based Agents | [**arXiv 2023**](https://arxiv.org/pdf/2311.11855) | 构建多智能体协作（MAS）攻击系统，通过红蓝对抗演练协同实施越狱攻击。 | Attack |
+| PANDORA: Detailed LLM Jailbreaking via Collaborated Phishing Agents with Decomposed Reasoning | [**ICLR 2024 Workshop**](https://openreview.net/forum?id=8Wb3aCRe5B) | 提出协同钓鱼 Agent 框架，通过分解推理实现精细化的社会工程学攻击。 | Attack |
+| Agent Smith: A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast | [**arXiv 2024**](https://arxiv.org/pdf/2402.08567) | 发现可指数级传播的自复制对抗图像，在多模态 Agent 系统中实现病毒式扩散。 | Attack |
 
 ---
 
@@ -144,8 +161,7 @@ Skill 是否包含恶意 Prompt 注入，篡改或误导模型行为。
 Memory 模块中历史记录是否可能被污染，影响 Skill 加载决策或模型行为。
 | Title | Link | Description | Category(Attack or Defense) |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| Watch Out for Your Agents! Investigating Backdoor Threats to LLM-based Agents | [**arXiv 2024**](https://arxiv.org/pdf/2402.11208) | 提出 AgentPoison 攻击，通过优化后门触发器并植入向量数据库，实现针对 Agent 记忆模块的持久化后门攻击。 | Attack |
 
 ---
 
@@ -155,22 +171,28 @@ Memory 模块中历史记录是否可能被污染，影响 Skill 加载决策或
 Skill 调用知识库检索时，是否可能检索到恶意或被污染的数据。
 | Title | Link | Description | Category(Attack or Defense) |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| Prompt-in-Content Attacks: Exploiting Uploaded Inputs to Hijack LLM Behavior | [arXiv:2508.19287](https://arxiv.org/pdf/2508.19287) | 揭示文件上传工作流中的新攻击向量，利用文档内嵌对抗指令实现输出操纵和敏感信息窃取。 | Attack |
+| PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation | [arXiv:2409.02354](https://arxiv.org/pdf/2409.02354) | 提出 PoisonedRAG，通过优化恶意文本使其更容易被检索算法选中，从而实现针对 RAG 的知识污染。 | Attack |
+| Typos that Broke the RAG's Back: Genetic Attack on RAG Pipeline | [arXiv:2404.13948](https://arxiv.org/pdf/2404.13948) | 提出 GARAG，利用遗传算法和低级字符扰动模拟真实场景文档，自动发现并优化针对 RAG 的攻击模式。 | Attack |
+| Certifiably Robust RAG against Retrieval Corruption | [arXiv:2405.15556](https://arxiv.org/pdf/2405.15556) | 分析 RAG 对检索腐败的敏感性，并提出 Isolate-then-Aggregate 防御策略，通过独立生成与聚合来提升鲁棒性。 | Attack/Defense |
+| RAG-Thief: Scalable Extraction of Private Data from RAG Applications | [arXiv:2411.14110](https://arxiv.org/pdf/2411.14110) | 提出 RAG-Thief，通过 Agent 自动化优化锚查询和越狱提示，实现对 RAG 知识库中私有数据的规模化窃取。 | Attack |
 
 ### Web 网页投毒
 Skill 调用 Web 页面或网络信息时，是否可能接收到恶意内容或钓鱼信息。
 | Title | Link | Description | Category(Attack or Defense) |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| WebInject: Prompt Injection Attack to Web Agents | [**EMNLP 2025**](https://arxiv.org/pdf/2502.00954) | 提出 EnvInjection 攻击，通过神经网络逼近 ICC 配置文件的映射，在网页像素中植入人眼不可见的指令操纵 Web Agent。 | Attack |
+| WASP: Benchmarking Web Agent Security Against Prompt Injection Attacks | [**arXiv 2025**](https://arxiv.org/pdf/2504.18575) | 首个 Web Agent 安全基准框架，模拟真实威胁场景并评估多步执行下的中间步骤与端到端攻击成功率。 | Attack/Benchmark |
+| Manipulating Multimodal Agents via Cross-Modal Prompt Injection | [**ACM MM 2025**](https://arxiv.org/pdf/2408.09730) | 提出 CrossInject 框架，通过视觉与文本模态间的恶意关联劫持多模态 Agent，利用模态对齐机制绕过单一防御。 | Attack |
+| Prompt Injection Attacks on Vision Language Models in Oncology | [**Nature Comm. 2025**](https://www.nature.com/articles/s41467-024-55631-x) | 首次在肿瘤学医学影像领域验证视觉注入攻击，证明通过在 X 光或 CT 中嵌入指令可直接操纵 AI 诊断结果。 | Attack |
+| Text-Based Prompt Injection Attack Using Mathematical Functions in Modern Large Language Models | [**Electronics 2024**](https://www.mdpi.com/2079-9292/13/24/5008) | 利用数学函数绘制字形来替换敏感词汇，通过多模态模型的视觉表示特性绕过关键词安全过滤。 | Attack |
 
 ### 操作系统恶意注入
 Skill 执行系统操作时，是否可能被注入恶意命令或操作系统攻击。
 | Title | Link | Description | Category(Attack or Defense) |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| StruQ: Defending Against Prompt Injection with Structured Queries | [**USENIX Security 2025**](https://arxiv.org/pdf/2402.06363) | 借鉴 SQL 注入防御思路，提出控制与数据分离原则，通过 API 层面的结构化查询接口实现系统级注入防御。 | Defense |
+| Supply-Chain Poisoning Attacks Against LLM Coding Agent Skill Ecosystems | [**arXiv 2026**](https://arxiv.org/pdf/2604.03081) | 揭示 Agent Skill 供应链风险，提出 DDIPE 机制通过文档示例隐式执行载荷，绕过模型对齐实现系统级劫持。 | Attack |
 
 ### 第三方 MCP 工具恶意提示注入
 Skill 调用第三方 MCP 工具时，工具返回是否可能包含恶意指令，影响模型行为。
