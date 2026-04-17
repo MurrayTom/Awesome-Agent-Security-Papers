@@ -90,17 +90,16 @@ Skill 内容是否符合政策法规或平台要求，防止非法或违规操�
 | Constitutional AI: Harmlessness from AI Feedback | [**arXiv 2022**](https://arxiv.org/abs/2212.08073) | Anthropic 提出宪法 AI 框架，通过 AI 自我批判与修订机制实现内容合规对齐，无需大量人工标注有害样本。 | Defense |
 
 ### 虚假信息
-Skill 声称的功能或指令是否真实，防止误导模型或用户。
+Skill 声称的功能、身份或指令是否真实，防止恶意 Skill 通过虚假声明误导智能体执行不安全操作。
 | Title | Link | Description | Category |
 |-------|------|-------|------|
-| A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions | [**ACM Computing Surveys 2025**](https://dl.acm.org/doi/abs/10.1145/3703155) | 全面梳理从文本到多模态模型的幻觉分类与产生机制，定义内在幻觉与外在幻觉，为 Skill 虚假声明研究提供系统框架。 | Definition |
-| Factuality of Large Language Models: A Survey | [**EMNLP 2024**](https://aclanthology.org/2024.emnlp-main.1088/) | 系统综述 LLM 事实性问题的定义、评估与增强方法，梳理幻觉成因与缓解技术路线。 | Definition |
-| TruthfulQA: Measuring How Models Mimic Human Falsehoods | [**NeurIPS 2023**](https://proceedings.neurips.cc/paper_files/paper/2023/hash/8b8a7960d343e023a6a0afe37eee6022-Abstract-Datasets_and_Benchmarks.html) | 模拟人类常见误区的真实性问答基准，包含 817 道问题，揭示大模型倾向于模仿人类错误信念。 | Benchmark |
-| FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation | [**EMNLP 2023**](https://aclanthology.org/2023.emnlp-main.741/) | 长文本生成的细粒度原子事实评分框架，将长文本分解为原子事实逐一核查，为 Skill 输出的事实性验证提供方法论。 | Benchmark |
-| FactBench: A Dynamic Benchmark for In-the-Wild Language Model Factuality Evaluation | [**ACL 2025**](https://aclanthology.org/2025.acl-long.1587/) | 动态更新的实时事实核查基准，覆盖真实世界中的新兴事实，评估 LLM 对时效性信息的事实准确性。 | Benchmark |
-| Can LLM-Generated Misinformation Be Detected? | [**ICLR 2024**](https://arxiv.org/abs/2309.13788) | 系统评估 LLM 生成虚假信息的可检测性，发现 LLM 生成的虚假信息比人工撰写的更难被检测，揭示新型威胁。 | Attack |
-| MultiRAG: A Knowledge-Guided Framework for Mitigating Hallucination in Multi-Source RAG | [**IEEE 2025**](https://ieeexplore.ieee.org/abstract/document/11113128/) | 多源知识引导框架减少检索冲突导致的幻觉，通过知识一致性校验提升 Skill 输出的事实准确性。 | Defense |
-| UALIGN: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models | [**ACL 2025**](https://aclanthology.org/2025.acl-long.299/) | 利用不确定性估计进行事实性对齐，使模型在不确定时拒绝回答。 | Defense |
+| Factuality of Large Language Models: A Survey | [**EMNLP 2024**](https://aclanthology.org/2024.emnlp-main.1088/) | 系统综述 LLM 事实性问题的定义与成因，为分析 Skill 虚假声明如何被智能体信任并执行提供理论基础。 | Definition |
+| On the Risk of Misinformation Pollution with Large Language Models | [**EMNLP 2023 Findings**](https://aclanthology.org/2023.findings-emnlp.97/) | 揭示 LLM 生成虚假信息的系统性风险，分析攻击者如何通过污染 Skill 关联知识库诱导智能体基于错误信息行动。 | Definition |
+| Attractive Metadata Attack: Inducing LLM Agents to Invoke Malicious Tools | [**arXiv 2025**](https://arxiv.org/abs/2508.02110) | 通过构造误导性工具元数据（名称、描述、示例）操纵智能体工具选择，使其误信恶意 Skill 为合法工具并优先调用，直接证明 Skill 虚假声明对智能体行为的劫持效果。 | Attack |
+| Supply-Chain Poisoning Attacks Against LLM Coding Agent Skill Ecosystems | [**arXiv 2026**](https://arxiv.org/pdf/2604.03081) | 揭示 Skill 供应链风险：恶意 Skill 伪装成合法编程工具发布，通过 DDIPE 机制在文档示例中嵌入隐式载荷，智能体加载后在误以为执行授权任务的同时实际执行攻击者控制的操作。 | Attack |
+| AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents | [**arXiv 2024**](https://arxiv.org/abs/2410.09024) | 包含 440 个有害 Agent 任务，可用于评估智能体在加载含虚假声明的恶意 Skill 后执行高危操作的风险程度。 | Benchmark |
+| MultiRAG: A Knowledge-Guided Framework for Mitigating Hallucination in Multi-Source RAG | [**IEEE 2025**](https://ieeexplore.ieee.org/abstract/document/11113128/) | 多源知识引导框架通过知识一致性校验，防止智能体因 Skill 关联知识库被污染而基于虚假信息做出错误决策。 | Defense |
+| UALIGN: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models | [**ACL 2025**](https://aclanthology.org/2025.acl-long.299/) | 利用不确定性估计进行事实性对齐，使智能体在 Skill 声明可信度不足时拒绝执行，降低虚假 Skill 的危害。 | Defense |
 
 ### 敏感信息与隐私泄露
 Skill 是否处理或泄露敏感信息，包括用户个人数据（PII）、系统提示词、Agent 内部状态、工具凭证及系统文件等。
