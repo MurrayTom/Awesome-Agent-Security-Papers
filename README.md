@@ -75,31 +75,64 @@ Skill 版本是否可信，是否存在非官方或未经审查的版本风险�
 
 ### 内容合规
 Skill 内容是否符合政策法规或平台要求，防止非法或违规操作。
-| Title | Link | Description | Category(Attack or Defense) |
+| Title | Link | Description | Category |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| LLM Harms: A Taxonomy and Discussion | [**arXiv 2025**](https://arxiv.org/abs/2512.05929) | 提出针对 GPT-4 级别模型的细粒度危害分类法，区分直接输出危害与间接诱导危害，为内容合规风险定义提供系统框架。 | Definition |
+| Guardians and Offenders: A Survey on Harmful Content Generation and Safety Mitigation of LLM | [**arXiv 2025**](https://arxiv.org/abs/2508.05775) | 统一 LLM 相关危害分类，系统分析内置安全护栏的演进，梳理有害内容生成与缓解的研究全貌。 | Definition |
+| Risk Taxonomy, Mitigation, and Assessment Benchmarks of Large Language Model Systems | [**arXiv 2024**](https://arxiv.org/abs/2401.05778) | 构建 LLM 系统风险分类体系，涵盖内容安全的多个子类别，为合规风险评估提供标准化框架。 | Definition |
+| SafetyBench: Evaluating the Safety of Large Language Models | [**ACL 2024**](https://aclanthology.org/2024.acl-long.830/) | 中英双语综合安全评估基准，包含 11185 道多选题，覆盖 7 大安全类别，系统评估 LLM 内容合规能力。 | Benchmark |
+| HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal | [**ICML 2024**](https://arxiv.org/abs/2402.04249) | 标准化有害行为评测框架，覆盖 18 种红队攻击方法与 400+ 有害行为类别，为 Skill 内容合规防御提供统一评测基准。 | Benchmark |
+| Universal Adversarial Attacks on Aligned Language Models (GCG) | [**arXiv 2023**](https://arxiv.org/abs/2307.15043) | 基于贪婪坐标梯度搜索的自动化对抗性后缀生成方法，可跨模型迁移，揭示对齐模型的系统性内容合规漏洞。 | Attack |
+| AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models | [**arXiv 2023**](https://arxiv.org/abs/2310.04451) | 自动生成隐蔽越狱提示词，模拟人类语言风格规避检测，对主流安全对齐模型均有效。 | Attack |
+| Do Anything Now: Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models | [**ACM CCS 2024**](https://arxiv.org/abs/2308.03825) | 收集并分析真实世界中 6387 条越狱提示，揭示内容合规防线的实际脆弱性，为合规检测提供真实攻击数据集。 | Attack |
+| WildGuard: Open One-Stop Moderation Tools for Safety Risks, Jailbreaks, and Refusals of LLMs | [**NeurIPS 2024**](https://proceedings.neurips.cc/paper_files/paper/2024/hash/0f69b4b96a46f284b726fbd70f74fb3b-Abstract-Datasets_and_Benchmarks_Track.html) | 开源一站式内容审核工具，覆盖有害请求识别、越狱检测与拒绝响应分类三大功能，在多个基准上超越 GPT-4。 | Defense |
+| Improving Safety Alignment via Balanced Direct Preference Optimization | [**arXiv 2026**](https://arxiv.org/abs/2603.22829) | 平衡 DPO 方法解决安全对齐中的过拟合问题，在提升内容合规性的同时保持模型实用性。 | Defense |
+| Constitutional AI: Harmlessness from AI Feedback | [**arXiv 2022**](https://arxiv.org/abs/2212.08073) | Anthropic 提出宪法 AI 框架，通过 AI 自我批判与修订机制实现内容合规对齐，无需大量人工标注有害样本。 | Defense |
 
 ### 虚假信息
 Skill 声称的功能或指令是否真实，防止误导模型或用户。
-| Title | Link | Description | Category(Attack or Defense) |
+| Title | Link | Description | Category |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions | [**ACM Computing Surveys 2025**](https://dl.acm.org/doi/abs/10.1145/3703155) | 全面梳理从文本到多模态模型的幻觉分类与产生机制，定义内在幻觉与外在幻觉，为 Skill 虚假声明研究提供系统框架。 | Definition |
+| Factuality of Large Language Models: A Survey | [**EMNLP 2024**](https://aclanthology.org/2024.emnlp-main.1088/) | 系统综述 LLM 事实性问题的定义、评估与增强方法，梳理幻觉成因与缓解技术路线。 | Definition |
+| TruthfulQA: Measuring How Models Mimic Human Falsehoods | [**NeurIPS 2023**](https://proceedings.neurips.cc/paper_files/paper/2023/hash/8b8a7960d343e023a6a0afe37eee6022-Abstract-Datasets_and_Benchmarks.html) | 模拟人类常见误区的真实性问答基准，包含 817 道问题，揭示大模型倾向于模仿人类错误信念。 | Benchmark |
+| FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation | [**EMNLP 2023**](https://aclanthology.org/2023.emnlp-main.741/) | 长文本生成的细粒度原子事实评分框架，将长文本分解为原子事实逐一核查，为 Skill 输出的事实性验证提供方法论。 | Benchmark |
+| FactBench: A Dynamic Benchmark for In-the-Wild Language Model Factuality Evaluation | [**ACL 2025**](https://aclanthology.org/2025.acl-long.1587/) | 动态更新的实时事实核查基准，覆盖真实世界中的新兴事实，评估 LLM 对时效性信息的事实准确性。 | Benchmark |
+| Can LLM-Generated Misinformation Be Detected? | [**ICLR 2024**](https://arxiv.org/abs/2309.13788) | 系统评估 LLM 生成虚假信息的可检测性，发现 LLM 生成的虚假信息比人工撰写的更难被检测，揭示新型威胁。 | Attack |
+| MultiRAG: A Knowledge-Guided Framework for Mitigating Hallucination in Multi-Source RAG | [**IEEE 2025**](https://ieeexplore.ieee.org/abstract/document/11113128/) | 多源知识引导框架减少检索冲突导致的幻觉，通过知识一致性校验提升 Skill 输出的事实准确性。 | Defense |
+| UALIGN: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models | [**ACL 2025**](https://aclanthology.org/2025.acl-long.299/) | 利用不确定性估计进行事实性对齐，使模型在不确定时拒绝回答。 | Defense |
 
 ### 敏感信息与隐私泄露
-Skill 是否处理或泄露敏感信息，如用户数据、机密信息。
-| Title | Link | Description | Category(Attack or Defense) |
+Skill 是否处理或泄露敏感信息，包括用户个人数据（PII）、系统提示词、Agent 内部状态、工具凭证及系统文件等。
+| Title | Link | Description | Category |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| Understanding PII Leakage in Large Language Models: A Systematic Survey | [**arXiv 2025**](https://digitalcommons.odu.edu/computerscience_fac_pubs/421/) | 系统综述 LLM 中 PII 泄露的攻击向量与防御机制，涵盖训练数据提取、成员推断、属性推断等多类隐私风险。 | Definition |
+| Security and Privacy Challenges of Large Language Models: A Survey | [**ACM Computing Surveys 2025**](https://dl.acm.org/doi/abs/10.1145/3712001) | 全面综述 LLM 安全与隐私挑战，涵盖数据泄露、模型逆向、推理隐私等多维度风险分析，包括系统提示词与 Agent 内部状态的泄露威胁。 | Definition |
+| Prompt Leakage Effect and Defense Strategies for Multi-Turn LLM Interactions | [**arXiv 2024**](https://arxiv.org/abs/2404.16251) | 系统研究多轮对话中系统提示词的渐进式泄露机制，定义提示泄露的攻击面与危害等级，为 Skill 系统提示词保护提供理论框架。 | Definition |
+| PII-Scope: A Comprehensive Study on Training Data PII Extraction Attacks in LLMs | [**arXiv 2024**](https://arxiv.org/abs/2410.06704) | 评估 LLM 训练数据中 PII 提取风险的综合基准，系统测量不同类型 PII 在各类模型中的泄露程度。 | Benchmark |
+| Can LLMs Keep a Secret? Testing Privacy Implications of Language Model Chatbots | [**ICLR 2024**](https://arxiv.org/abs/2306.07543) | 提出 ConfAIde 基准，测试 LLM 在对话中保守秘密的能力，揭示 Skill 在多轮交互中系统提示词与用户隐私的泄露风险。 | Benchmark |
+| Effective PII Extraction from LLMs through Augmented Few-Shot Learning | [**USENIX Security 2025**](https://www.usenix.org/conference/usenixsecurity25/presentation/cheng-shuai) | 利用少样本学习增强技术诱导 LLM 暴露个人身份信息，揭示 Skill 在少样本场景下的隐私泄露风险。 | Attack |
+| LLMs Leak Training Data Beyond Verbatim Memorization via Membership Decoding | [**OpenReview 2023**](https://openreview.net/forum?id=ULqzEEkyxk) | 通过成员推断解码揭示 LLM 训练数据泄露超越逐字记忆，证明模型可泄露语义层面的训练数据信息。 | Attack |
+| PLeak: Prompt Leaking Attacks against Large Language Model Applications | [**ACM CCS 2024**](https://arxiv.org/abs/2406.09324) | 提出 PLeak 框架，通过构造对抗性查询序列高效提取开发者保密的系统提示词，揭示 Skill 系统提示词面临的主动窃取威胁。 | Attack |
+| Simple Prompt Injection Attacks Can Leak Personal Data Observed by LLM Agents During Task Execution | [**arXiv 2025**](https://arxiv.org/abs/2506.01055) | 揭示 Agent 在执行多步任务时，中间处理的文件内容、工具返回值等系统数据可通过简单提示注入被渗透窃取。 | Attack |
+| IP Leakage Attacks Targeting LLM-Based Multi-Agent Systems | [**arXiv 2025**](https://arxiv.org/abs/2505.12442) | 针对多智能体系统的知识产权和敏感信息窃取攻击，揭示 Skill 在多 Agent 协作场景下系统配置与内部状态的泄露路径。 | Attack |
+| Fine-tuning Large Language Models with User-level Differential Privacy | [**arXiv 2024**](https://arxiv.org/abs/2407.07737) | 用户级差分隐私保护 LLM 微调数据隐私，在保证模型性能的同时提供可量化的隐私保护。 | Defense |
+| Split-and-Denoise: Protect Large Language Model Inference with Local Differential Privacy | [**arXiv 2023**](https://arxiv.org/abs/2310.09130) | 局部差分隐私保护 LLM 推理输入隐私，通过分割与去噪机制防止 Skill 推理过程中的用户数据与系统状态泄露。 | Defense |
+| A-MemGuard: A Proactive Defense Framework for LLM-Based Agent Memory | [**arXiv 2025**](https://arxiv.org/abs/2510.02373) | 针对 Agent 记忆系统的主动式防御框架，防止攻击者通过记忆模块提取 Skill 处理过的敏感信息与系统状态。 | Defense |
 
 ### 高风险/越权操作
 Skill 是否尝试执行超出权限范围的操作，如系统级文件操作或管理操作。
-| Title | Link | Description | Category(Attack or Defense) |
+| Title | Link | Description | Category |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| Taming Various Privilege Escalation in LLM-Based Agent Systems: A Mandatory Access Control Framework (SEAgent) | [**arXiv 2026**](https://arxiv.org/abs/2601.11893) | 定义 Agent 权限提升攻击分类（水平提升、垂直提升、跨 Agent 提升），为越权操作风险提供系统化分类框架。 | Definition |
+| Identifying the Risks of LM Agents with an LM-Emulated Sandbox (ToolEmu) | [**ICLR 2024**](https://arxiv.org/abs/2309.15817) | 提出 ToolEmu 沙箱框架，用 LLM 模拟工具执行环境，系统识别 Agent 在真实工具调用中的越权操作风险，发现 68.4% 的测试案例存在安全失败。 | Benchmark |
+| AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents | [**arXiv 2024**](https://arxiv.org/abs/2410.09024) | 包含 440 个有害 Agent 任务，覆盖网络攻击、欺诈、武器制造等 11 类高风险操作，衡量 Agent 执行显式恶意任务时的合规性与危害程度。 | Benchmark |
+| R-Judge: Benchmarking Safety Risk Awareness for LLM Agents | [**EMNLP 2024**](https://arxiv.org/abs/2401.10019) | 包含 569 个安全风险场景，覆盖 27 类高风险操作，系统评估 LLM Agent 对越权操作的风险感知能力。 | Benchmark |
+| AdapTools: Adaptive Tool-based Indirect Prompt Injection Attacks on Agentic LLMs | [**arXiv 2026**](https://arxiv.org/abs/2602.20720) | 自适应工具注入攻击，通过选择更隐蔽且任务相关的攻击工具绕过现有 IPI 防御，显著提升越权操作成功率。 | Attack |
+| SEAgent: Mandatory Access Control Framework for LLM-Based Agent Systems | [**arXiv 2026**](https://arxiv.org/abs/2601.11893) | 强制访问控制框架限制 Agent 操作边界，通过最小权限原则防止 Skill 执行超出授权范围的高风险操作。 | Defense |
+| Progent: Programmable Privilege Control for LLM Agents | [**arXiv 2025**](https://arxiv.org/abs/2504.11703) | 首个为 LLM Agent 设计的细粒度可编程权限控制框架，支持动态权限策略，精确限制 Skill 的操作边界。 | Defense |
+| ToolSafe: Enhancing Tool Invocation Safety via Proactive Step-level Guardrail and Feedback | [**arXiv 2026**](https://arxiv.org/abs/2601.10156) | 执行前步骤级安全护栏检查，在 Skill 调用高风险工具前进行实时拦截与反馈，防止越权操作造成不可逆损害。 | Defense |
+| Task Shield: Enforcing Task Alignment to Defend Against Indirect Prompt Injection | [**ACL 2025**](https://aclanthology.org/2025.acl-long.1435/) | 通过强制任务对齐防御环境中的恶意指令注入，确保 Skill 执行始终与原始授权任务保持一致。 | Defense |
 
 ### 恶意代码注入
 Skill 内是否包含恶意代码，如 Shell 注入、远程代码执行等。
@@ -145,10 +178,22 @@ Skill 是否包含恶意 Prompt 注入，篡改或误导模型行为。
 
 ### 系统提示词污染（后门攻击）
 模型加载 Skill 时，系统提示词是否可能被污染或嵌入后门指令。
-| Title | Link | Description | Category(Attack or Defense) |
+| Title | Link | Description | Category |
 |-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| Backdoor Attacks on Language Models | [**arXiv 2021**](https://arxiv.org/abs/2110.07849) | 首次系统定义 NLP 后门攻击的威胁模型，区分数据投毒型与模型权重型后门，为系统提示词后门攻击提供基础分类框架。 | Definition |
+| A Survey of Backdoor Attacks and Defenses on Large Language Models | [**IEEE TNNLS 2025**](https://arxiv.org/abs/2406.06852) | 全面综述 LLM 后门攻击与防御，涵盖指令微调、RLHF、RAG 等多个攻击面，系统梳理系统提示词污染的威胁模型与防御技术路线。 | Definition |
+| Instructions as Backdoors: Backdoor Vulnerabilities of Instruction Tuning for Large Language Models | [**NAACL 2024**](https://arxiv.org/abs/2305.14710) | 首次揭示指令微调数据集中的后门漏洞，证明攻击者可通过污染少量指令数据在 LLM 中植入持久化后门，直接威胁 Skill 系统提示词安全。 | Definition |
+| BackdoorBench: A Comprehensive Benchmark of Backdoor Learning | [**NeurIPS 2022**](https://arxiv.org/abs/2206.12654) | 首个系统化后门学习综合基准，统一评估框架覆盖 16 种攻击与 9 种防御方法，为系统提示词后门攻击的评测提供标准化平台。 | Benchmark |
+| TrojLLM: A Black-box Trojan Prompt Attack on Large Language Models | [**NeurIPS 2023**](https://arxiv.org/abs/2306.06815) | 提出黑盒木马提示攻击框架，无需访问模型权重即可在提示词中植入触发器，直接针对系统提示词的后门注入场景，并提供评测基准。 | Benchmark |
+| Backdooring Instruction-Tuned Large Language Models with Virtual Prompt Injection | [**NAACL 2024**](https://arxiv.org/abs/2307.16888) | 提出虚拟提示注入（VPI），通过少量投毒数据在指令微调阶段嵌入后门，触发后可将任意系统提示词替换为攻击者控制的恶意指令。 | Attack |
+| BadAgent: Inserting and Activating Backdoor Attacks in LLM Agents | [**ACL 2024**](https://arxiv.org/abs/2406.03007) | 首个针对 LLM Agent 的后门攻击框架，通过污染 Agent 训练数据在系统提示词层面植入后门，触发后可劫持 Agent 执行任意高危操作。 | Attack |
+| Watch Out for Your Agents! Investigating Backdoor Threats to LLM-based Agents | [**arXiv 2024**](https://arxiv.org/abs/2402.11208) | 系统研究 LLM Agent 的后门威胁，涵盖系统提示词污染、工具调用劫持等多种攻击路径，揭示 Agent 场景下后门攻击的独特危险性。 | Attack |
+| Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training | [**arXiv 2024**](https://arxiv.org/abs/2401.05566) | Anthropic 研究揭示可在安全训练后持续存在的"睡眠代理"后门，证明即使经过 RLHF 对齐，系统提示词中的后门行为仍可被激活。 | Attack |
+| PoisonedAlign: Poisoning Safety Alignment of Large Language Models via Harmful Demonstrations | [**EMNLP 2024**](https://arxiv.org/abs/2406.09038) | 通过在 RLHF/SFT 对齐阶段注入有害示例污染安全对齐，使模型在特定触发词下绕过安全护栏，直接威胁系统提示词的安全约束。 | Attack |
+| Shadow Alignment: The Ease of Subverting Safely-Aligned Language Models | [**arXiv 2023**](https://arxiv.org/abs/2310.02949) | 仅需 100 条有害数据即可颠覆安全对齐，揭示系统提示词安全约束的脆弱性，攻击者可低成本植入后门覆盖原有安全指令。 | Attack |
+| ONION: A Simple and Effective Defense Against Textual Backdoor Attacks | [**EMNLP 2021**](https://arxiv.org/abs/2011.10369) | 基于异常词检测的文本后门防御方法，通过识别触发词的语言学异常性过滤后门输入，可用于系统提示词的后门触发器检测。 | Defense |
+| Mitigating Backdoor Attacks in LLMs through Activation Patching | [**arXiv 2024**](https://arxiv.org/abs/2408.10178) | 针对 LLM 的激活修补方法，通过定位并修复后门相关的激活模式，在推理阶段实时消除系统提示词污染的影响。 | Defense |
+| Fine-Pruning: Defending Against Backdooring Attacks on Deep Neural Networks | [**RAID 2018**](https://arxiv.org/abs/1805.12185) | 提出剪枝+微调的后门消除方法，通过移除对正常输入不活跃的神经元来净化被污染的模型，可用于清除系统提示词后门。 | Defense |
 
 ### 恶意用户引导
 用户输入是否可能恶意引导模型加载或执行特定 Skill，从而触发风险。
