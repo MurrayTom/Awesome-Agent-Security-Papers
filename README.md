@@ -275,6 +275,11 @@ Skill 调用第三方 MCP 工具时，工具返回是否可能包含恶意指令
 | AdapTools: Adaptive Tool-based Indirect Prompt Injection Attacks on Agentic LLMs | [ArXiv 2026](https://arxiv.org/abs/2602.20720) | 提出 AdapTools，一种面向 Agentic LLM 的自适应工具型间接提示注入攻击框架。该方法一方面自动构造可迁移的攻击策略以优化恶意提示，另一方面通过选择更隐蔽且任务相关的攻击工具来绕过相关性防御，从而显著增强攻击效果 | Attack |
 | The Ranking Blind Spot: Decision Hijacking in LLM-based Text Ranking | [EMNLP 2025 main](https://aclanthology.org/2025.emnlp-main.1116/) | 不是典型agent IPI的论文，关注的是rank任务里如果被排序内容注入了攻击内容来影响排序结果，提出“Ranking Blind Spot”现象，系统揭示了 LLM 文本排序器在比较式评估中会受到指令跟随能力干扰，并进一步设计了两类决策劫持攻击：Decision Objective Hijacking 与 Decision Criteria Hijacking，使恶意内容提供方能够操纵排序目标或相关性标准，从而影响文档排序结果 | Attack |
 | Reasoning Hijacking: Subverting LLM Classification via Decision-Criteria Injection | [ACL 2026](https://arxiv.org/abs/2601.10294) | 提出 Reasoning Hijacking，新型攻击范式不直接改变模型的高层任务目标，而是通过注入伪造的决策标准来操纵模型内部判断逻辑；作者进一步实例化出 Criteria Attack，并在垃圾邮件检测、毒性评论识别和差评识别等分类任务上验证其有效性 | Attack |
+| VIGIL: Defending LLM Agents Against Tool-Stream Injection via Verify-Before-Commit | ACL2026 | 提出 VIGIL，一种面向 tool-stream injection 的防御框架，通过“verify-before-commit”机制在执行前对智能体的候选推理与动作进行基于用户意图的验证，从而在保留推理灵活性的同时抑制恶意工具流注入 | Defense |
+| PISmith: Reinforcement Learning-based Red Teaming for Prompt Injection Defenses | ArXiv2026 | 提出 PISmith，一种基于强化学习的提示注入防御红队评测框架，在黑盒设定下训练攻击 LLM 自适应优化注入提示，针对IPI奖励极度稀疏的问题，进一步设计了自适应熵正则与动态优势加权机制以维持探索并强化少量成功样本学习 | Attack |
+| AgentSentry: Mitigating Indirect Prompt Injection in LLM Agents via Temporal Causal Diagnostics and Context Purification | ArXiv2026 | 提出 AgentSentry，一种面向agent的推理时防御框架，将多轮 IPI 建模为“时间因果接管”过程；该方法通过在工具返回边界执行受控反事实重放来定位接管点，并进一步进行因果引导的上下文净化，在保留任务相关证据的同时移除攻击诱导的偏差信号 | Defense |
+| AttriGuard: Defeating Indirect Prompt Injection in LLM Agents via Causal Attribution of Tool Invocations | ArXiv2026 | 提出 AttriGuard，一种基于“工具调用因果归因”的运行时防御框架，不再仅从输入语义层面判断是否存在注入，而是追问某个候选工具调用究竟是由用户意图驱动，还是由不可信工具输出因果诱导产生 | Defense |
+
 ---
 
 ## BibTex
