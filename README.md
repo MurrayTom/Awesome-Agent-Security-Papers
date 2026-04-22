@@ -196,10 +196,30 @@ Skill 是否包含恶意 Prompt 注入，篡改或误导模型行为。
 
 ### 恶意用户引导
 用户输入是否可能恶意引导模型加载或执行特定 Skill，从而触发风险。
-| Title | Link | Description | Category(Attack or Defense) |
-|-------|------|-------|------|
-|  | [Link]() |-------|------|
-|  | [Link]() |-------|------|
+| Title | Link | Description | Category |
+|------|------|------------|----------|
+| AGENT SECURITY BENCH (ASB):  FORMALIZING AND BENCHMARKING ATTACKS AND  DEFENSES IN LLM-BASED AGENTS | https://arxiv.org/abs/2410.02644 | Tool引入了关键漏洞。所以建立一个bench，对基于LLM的代理的攻击和防御进行全面的评估，包括10个场景，10个针对场景的代理，超过400个工具，27种不同类型的攻击/防御方法和7个评估指标。严重漏洞发现：Agent 在操作的不同阶段（系统 prompt、用户 prompt 处理、工具使用、记忆检索）均存在关键漏洞；高攻击成功率：最高平均攻击_success rate 达到 84.30% | Defence |
+| AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic Large Language Models | https://arxiv.org/abs/2505.23020 | 当前使用工具的对齐不足，所以引入AgentAlign，一份SFT数据：抽象行为链-合成环境-质检-trajectory。亮点在于用一条行为链分别合成两条数据，一好一坏，找寻任务边界。以Qwen-2.5-7B-Instruct为例，refusal从21.6%提升至85.8%，Benign Requests的score也有一定提升。 | Defence |
+| AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents | https://arxiv.org/abs/2406.13352 | AI智能体通过结合文本推理与外部工具调用来解决复杂任务，它们容易受到提示注入攻击，AgentDojo是一个可扩展的动态评测框架，包括非静态测试套件、丰富的测试数据、多样范式支持。实验中采用了它的一些Jailbreak模板。AgentDojo对攻击和防御都构成了挑战，为研究更可靠、稳健的智能体设计原则提供了基础 | Defence |
+| AGENTHARM: A BENCHMARK FOR MEASURING  HARMFULNESS OF LLM AGENTS | https://arxiv.org/abs/2410.09024 | 探讨agent在使用工具时对越狱攻击的鲁棒性，一个benchmark，包括110个明确的恶意代理任务，11个危害类别。发现当前LLMs对于越狱效果不好。主要是参考了它的jailbreak模板。 |  Defence |
+| AutoRedTeamer: Autonomous Red Teaming with Lifelong Attack Integration | https://arxiv.org/abs/2503.15754 | 自动化进攻流程，一个红队智能体，一个策略提出智能体（学习最新的文献），借鉴了文化背景攻击、情绪+人设、道德许可等 | Attack |
+| BackdoorAgent: A Unified Framework for Backdoor Attacks on LLM-based Agents | https://arxiv.org/abs/2601.04566 | 主要是做后门攻击，前期埋雷，后期出发trigger。主要借鉴了它的情境创设和Emergency模板写法 | Attack |
+| CHATINJECT: ABUSING CHAT TEMPLATES FOR  PROMPT INJECTION IN LLM AGENTS | https://arxiv.org/abs/2509.22830 | 针对当前多轮对话攻击的研究，文章中带有模板化的jailbreak（标志词伪造），主要参考了它的多轮对话构造 | Attack |
+| DIVE: Scaling Diversity in Agentic Task Synthesis for Generalizable Tool Use | https://arxiv.org/abs/2603.11076 | 不是安全领域的论文，和STAC一起参考了它的数据合成逻辑。从工具池中提取任务。首先随即找tool，接下来做多轮扩展，最后用任务覆盖工具链。 | Neither |
+| STAC: WHEN INNOCENT TOOLS FORM DANGEROUS  CHAINS TO JAILBREAK LLM AGENTS | https://arxiv.org/abs/2509.25624 | 针对多轮任务的数据合成，具体来说，首先从tool chain结构选子链，接下来用对应任务覆盖。这样可以基本保证任务的可执行性比较强。也解决了从任务出发时Agent的很多幻觉问题。 | Attack |
+| Automating Agent Hijacking via Structural Template Injection | https://arxiv.org/abs/2602.16958 | 针对Agent的纯粹jailbreak，核心思想是先写模板，接下来通过攻击动态增加其多样性，最终找到好用的几个jailbreak模板。借鉴了他给出的一些基础模板。 | Attack |
+| Measuring Lexical Diversity of Synthetic Data Generated through Fine-Grained Persona Prompting | https://aclanthology.org/2025.findings-emnlp.1146.pdf | 针对当前合成数据的趋同问题，探讨了不同的persona对于生成数据的多样性的影响。参考了其persna的研究。 | Neither |
+| SKILL-INJECT: Measuring Agent Vulnerability to Skill File Attacks | https://arxiv.org/abs/2602.20156 | 主要讲了第三方工具的inject，参考了其社会工程学方法、工具而输出恶意覆盖等。 | Attack |
+| ToolSafety: A Comprehensive Dataset for Enhancing Safety in LLM-Based  Agent Tool Invocations | https://aclanthology.org/2025.emnlp-main.714.pdf | 一个用于增强基于LLM的Agent的工具调用安全性的综合数据集，三类：一步攻击，多步攻击，indirect harm。多步的效果更好，分散了注意力。探讨了解码策略的影响。 | Attack / Defence |
+| TopicAttack: An Indirect Prompt Injection Attack via Topic Transition | https://aclanthology.org/2025.emnlp-main.372.pdf | 针对当前的长上下文的多轮对话问题，主要研究的是从良性任务平滑过渡至恶性任务，采用多种注意力转移和越狱技巧，参考了其平滑过渡技巧。 | Attack |
+| Agent Safety Alignment via Reinforcement Learning | https://arxiv.org/abs/2507.08270 | 随着 LLM 智能体获得操作外部工具的权限，它们面临着双重攻击平面的威胁：不仅有用户发起的直接威胁，还有工具/环境发起的间接威胁,现有策略导致智能体陷入"安全性与效用性"的死局.-本文提出了首个用于工具使用智能体的统一安全对齐框架，旨在通过强化学习重塑智能体的"风险直觉",统一的三态分类与 ERV 策略,良性-执行、恶意-拒绝 (Refuse)、敏感-验证,构建了一个支持动态暂停的虚拟沙盒。在 RL 训练阶段，当智能体尝试调用工具时，系统在沙盒中模拟执行并检测真实物理后果。根据破坏程度或成功拦截提供细粒度的奖励塑造-提升在主流bench上的表现 | Defence |
+| AgentDoG: A Diagnostic Guardrail Framework for AI Agent Safety and Security | https://arxiv.org/abs/2601.18491 | 后续有单独的一篇ATBench是它的数据集。现有的护栏模型缺乏对智能体风险的认知能力，且在风险诊断方面缺乏透明度——它们只能提供二元的安全标签，无法解释某个动作为何不安全或识别其根本原因。所以文章设计了统一的三维风险分类法：从三个正交维度对智能体风险进行结构化分类：来源：风险源自何处；失效模式：故障如何发生；后果：导致什么结果，ATBench：基于该分层分类法构建的细粒度智能体安全评测基准，AgentDoG ：一个能够提供以下能力的模型，对智能体行为轨迹进行细粒度、上下文感知的监控并对不安全动作进行根因诊断 | Defence |
+| ATBench: A Diverse and Realistic Agent Trajectory Benchmark for Safety Evaluation and Diagnosis | https://arxiv.org/abs/2604.02022 | 上一篇的数据集 | Defence |
+| AGENT-SAFETYBENCH: Evaluating the Safety of LLM Agents | https://arxiv.org/abs/2412.14470 | Agent与交互环境的集成和工具的使用引入了新的安全挑战，设计Agent-SafetyBench，包含8大安全风险类别，10种常见失败模式，对16个主流 LLM 智能体的评估显示，没有任何一个智能体的安全得分超过60%。其中GPT-4o总分为44.2%，Claude 3.5-Sonnet为59.4% | Defence |
+| AIR: Improving Agent Safety through Incident Response | https://arxiv.org/abs/2602.11749 | 目前针对LLM代理的安全机制几乎专注于提前预防故障，本文聚焦于在不可避免的事件发生后提供有限的能力来应对、遏制或从事件中恢复过来。本文提出了用于LLM代理系统的事件响应框架AIR，在LLM Agent系统中定义了自主管理事件响应生命周期的领域特定语言，检测事件并指导Agent执行遏制和恢复动作。 | Defence |
+| MCP-SAFETYBENCH: A BENCHMARK FOR SAFETY  EVALUATION OF LARGE LANGUAGE MODELS WITH REALWORLD MCP SERVERS | https://arxiv.org/abs/2512.15163 | 建立在MCP通用接口上的 | Attack / Defence |
+| Towards Tool Use Alignment of Large Language Models | https://aclanthology.org/2024.emnlp-main.82.pdf | 面向agent使用工具的对齐，提出了H2A原则，并且定义了拒绝是不够的，要知道为什么不能做和应该怎么做。 | Defence |
+
 
 ### 记忆污染
 Memory 模块中历史记录是否可能被污染，影响 Skill 加载决策或模型行为。
