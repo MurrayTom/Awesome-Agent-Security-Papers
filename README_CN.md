@@ -2,43 +2,43 @@
 
 <div align="center">
 
-**A Literature Index of Attack Surfaces, Evaluation Benchmarks, and Defenses for Generalist Agents**
+**通用智能体安全：攻击面、评测基准与防御方法文献索引**
 
 [中文](./README.md) | [English](./README_EN.md)
 
-[Survey PDF](./Pandora-agent-survey.pdf) · [Reference README](./README_reference.md)
+[综述 PDF](./Pandora-agent-survey.pdf) · [参考 README](./README_reference.md)
 
 </div>
 
 ## 🌟 Overview
 
-This repository organizes the taxonomy and representative studies from *Pandora's Toolbox: A Survey of Security Risks, Attacks, Evaluation, and Defenses for Generalist Agents*. It is intended as a literature-research resource for the security of generalist agents.
+本仓库整理综述 *Pandora's Toolbox: A Survey of Security Risks, Attacks, Evaluation, and Defenses for Generalist Agents* 的分类法与代表性研究，面向通用智能体（generalist agents）的安全文献调研。
 
-The survey takes a runtime-lifecycle perspective and divides the lifecycle into three stages: **provenance, orchestration, and execution**. It organizes the literature along three dimensions:
+综述以智能体运行时生命周期为主线，将生命周期划分为 **来源（provenance）—编排（orchestration）—执行（execution）** 三个阶段，并从以下三个维度组织研究：
 
-1. **Security risks and attacks**: four attack surfaces covering skill supply chains, user inputs, long-term memory, and external environments;
-2. **Security evaluation**: three lines of work covering domain-specific agents, generalist agents, and offline trajectory auditing;
-3. **Security defenses**: three layers covering input and context filtering, decision and control integrity, and runtime monitoring and enforcement.
+1. **安全风险与攻击**：技能供应链、用户输入、长期记忆、外部环境四类攻击面；
+2. **安全评测**：领域专用智能体、通用智能体、离线轨迹审计三条评测主线；
+3. **安全防御**：输入与上下文过滤、决策与控制完整性、运行时监控与执行约束三层防线。
 
-> This list is based on Figure 2 and Tables 2–9 of the survey. A paper may propose an attack, a benchmark, and a defense, so it may appear in multiple categories. Years refer to the first public release. Links prioritize arXiv, OpenReview, ACL Anthology, and official project pages.
+> 本列表依据综述 Figure 2 及 Tables 2–9 整理。论文可能同时提出攻击、基准与防御，因此会出现在多个类别中。年份采用论文首次公开年份；链接优先指向 arXiv、OpenReview、ACL Anthology 或项目主页。
 
 ## 🧭 Taxonomy at a Glance
 
-| Dimension | Primary category | Subcategories |
+| 研究维度 | 一级分类 | 二级分类 |
 |---|---|---|
-| Risks and attacks | Skill supply-chain attacks | Declarative skill file poisoning; multi-component skill ecosystem poisoning; benign skill misuse and compositional risks; cross-session skill rewriting and backdoor triggering |
-| Risks and attacks | User-side attacks | Manual jailbreak attacks; heuristic optimization-based jailbreak attacks; agentic red-teaming for jailbreak |
-| Risks and attacks | Long-term memory risks | Direct long-term memory poisoning; indirect interaction-based memory injection; backdoor attacks |
-| Risks and attacks | Environment-side attacks | Web injection attacks; malicious injection in computer-use environments; tool-output injection |
-| Evaluation | Domain-specific agent safety benchmarks | Tool use; web browsing; computer and mobile operation |
-| Evaluation | Generalist agent safety benchmarks | Skill-based behavioral safety; malicious skill detection |
-| Evaluation | Offline trajectory auditing | Trajectory-level safety detection; step-level safety detection |
-| Defenses | Input and context filtering | Skill risk scanning; prompt injection and jailbreak guardrails; memory guardrails |
-| Defenses | Decision and control integrity | Harness-externalized defenses; alignment-internalized defenses |
-| Defenses | Runtime monitoring and enforcement | Planning-stage auditing; step-level monitoring; trajectory-level review |
+| 风险与攻击 | 技能供应链攻击 | 声明式技能文件投毒；多组件技能生态投毒；良性技能误用与组合风险；跨会话技能重写与后门触发 |
+| 风险与攻击 | 用户侧攻击 | 人工越狱；启发式优化越狱；智能体化自动红队 |
+| 风险与攻击 | 长期记忆风险 | 直接长期记忆投毒；基于交互的间接记忆注入；后门攻击 |
+| 风险与攻击 | 环境侧攻击 | Web 注入；计算机使用环境恶意注入；工具输出注入 |
+| 安全评测 | 领域专用智能体基准 | 工具调用；Web 浏览；计算机与移动端操作 |
+| 安全评测 | 通用智能体基准 | 基于技能的行为安全；恶意技能检测 |
+| 安全评测 | 离线轨迹审计 | 轨迹级安全检测；步骤级安全检测 |
+| 安全防御 | 输入与上下文过滤 | 技能风险扫描；提示注入与越狱护栏；记忆护栏 |
+| 安全防御 | 决策与控制完整性 | Harness 外置防御；模型对齐内化防御 |
+| 安全防御 | 运行时监控与执行约束 | 规划阶段审计；步骤级监控；轨迹级复核 |
 
 <details open>
-  <summary><b>📂 Table of Contents</b> (click to expand/collapse)</summary>
+  <summary><b>📂 Table of Contents</b>（点击展开/折叠）</summary>
   <ul>
     <li><a href="#security-risks-and-attacks">Security Risks and Attacks</a>
       <ul>
@@ -74,51 +74,51 @@ The survey takes a runtime-lifecycle perspective and divides the lifecycle into 
 
 <a id="skill-supply-chain-attacks"></a>
 
-## 1.1 Skill Supply-Chain Attacks
+## 1.1 Skill Supply-Chain Attacks（技能供应链攻击）
 
-Skills can be developed by third parties and autonomously selected and loaded by agents. Risks may reside in metadata, `SKILL.md`, scripts, dependencies, configuration, retrieval resources, and persistent cross-session state.
+技能由第三方开发并可被智能体自主选择和加载，风险可存在于元数据、`SKILL.md`、脚本、依赖、配置、检索资源及跨会话持久状态中。
 
-### Declarative Skill File Poisoning
+### Declarative Skill File Poisoning（声明式技能文件投毒）
 
-Attackers poison skill metadata, instructions, examples, or trigger rules so that malicious natural-language instructions enter the planning context.
+攻击者污染技能元数据、说明、示例或触发规则，使恶意自然语言指令进入规划上下文。
 
 - (2026) [Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks](https://arxiv.org/abs/2602.20156)
 - (2026) [Supply-Chain Poisoning Attacks Against LLM Coding Agent Skill Ecosystems (PoisonedSkills)](https://arxiv.org/abs/2604.03081)
 - (2026) [SkillJect: Effectively Automating Skill-Based Prompt Injection for Skill-Enabled Agents](https://arxiv.org/abs/2602.14211)
 - (2026) [Under the Hood of SKILL.md: Semantic Supply-Chain Attacks on AI Agent Skill Registry](https://arxiv.org/abs/2605.11418)
 
-### Multi-Component Skill Ecosystem Poisoning
+### Multi-Component Skill Ecosystem Poisoning（多组件技能生态投毒）
 
-The attack surface extends beyond the primary skill file to auxiliary scripts, tool interfaces, dependencies, external assets, configuration files, RAG databases, and local caches.
+攻击面从主技能文件扩展到辅助脚本、工具接口、依赖、外部资产、配置文件、RAG 数据库和本地缓存。
 
 - (2026) [SkillSafetyBench: Evaluating Agent Safety under Skill-Facing Attack Surfaces](https://arxiv.org/abs/2605.12015)
 - (2026) [Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks](https://arxiv.org/abs/2602.20156)
 - (2026) [Proteus: A Self-Evolving Red Team for Agent Skill Ecosystems](https://arxiv.org/abs/2605.11891)
 
-### Benign Skill Misuse and Compositional Risks
+### Benign Skill Misuse and Compositional Risks（良性技能误用与组合风险）
 
-An individual skill may contain no malicious payload yet remain exploitable through adversarial input. Multiple individually benign skills may also produce unauthorized, privacy-leaking, or destructive behavior when composed along a shared execution path.
+单个技能可能本身无恶意载荷，却能被对抗输入利用；多个单独良性的技能在共享执行路径中组合后，也可能形成越权、泄露或破坏性行为。
 
 - (2026) [SkillAttack: Automated Red Teaming of Agent Skills through Attack Path Refinement](https://arxiv.org/abs/2604.04989)
 - (2026) [Benign in Isolation, Harmful in Composition: Security Risks in Agent Skill Ecosystems (SCR-Bench)](https://arxiv.org/abs/2606.15242)
 - (2026) [OpenSkillRisk: Benchmarking Agent Safety When Using Real-World Risky Third-Party Skills](https://arxiv.org/abs/2607.20121)
 
-### Cross-Session Skill Rewriting and Backdoor Triggering
+### Cross-Session Skill Rewriting and Backdoor Triggering（跨会话技能重写与后门触发）
 
-An attack modifies skill files, caches, project artifacts, or dependencies in the current session, while malicious behavior activates only in a later session or under a specific trigger.
+攻击在当前会话中修改技能文件、缓存、项目制品或依赖，恶意行为在后续会话或特定触发条件下才激活。
 
 - (2026) [SkillHarm: Lifecycle-Aware Skill-Based Attacks via Automated Construction](https://arxiv.org/abs/2606.02540)
 - (2026) [SkillTrojan: Backdoor Attacks on Skill-Based Agent Systems](https://arxiv.org/abs/2604.06811)
 
 <a id="user-side-attacks"></a>
 
-## 1.2 User-Side Attacks
+## 1.2 User-Side Attacks（用户侧攻击）
 
-Malicious users submit harmful tasks, jailbreak prompts, obfuscated contexts, or multi-turn inducements through the direct interaction interface to bypass safety policies and trigger high-risk actions.
+恶意用户通过直接交互界面提交有害任务、越狱提示、混淆上下文或多轮诱导，使智能体绕过安全策略并执行高风险操作。
 
-### Manual Jailbreak Attacks
+### Manual Jailbreak Attacks（人工越狱攻击）
 
-These attacks rely on human-designed templates that reformulate malicious requests through role-playing, refusal suppression, scenario disguise, encoding transformations, payload splitting, or few-shot examples.
+依赖人工设计的模板，通过角色扮演、拒答抑制、场景伪装、编码转换、载荷拆分或少样本示例重述恶意请求。
 
 - (2024) [Refusal-Trained LLMs Are Easily Jailbroken as Browser Agents (BrowserART)](https://arxiv.org/abs/2410.13886)
 - (2025) [Large Language Models Often Say One Thing and Do Another (WDCT)](https://arxiv.org/abs/2503.07003)
@@ -128,9 +128,9 @@ These attacks rely on human-designed templates that reformulate malicious reques
 - (2023) [DeepInception: Hypnotize Large Language Model to Be Jailbreaker](https://arxiv.org/abs/2311.03191)
 - (2024) [EasyJailbreak: A Unified Framework for Jailbreaking Large Language Models](https://arxiv.org/abs/2403.12171)
 
-### Heuristic Optimization-Based Jailbreak Attacks
+### Heuristic Optimization-Based Jailbreak Attacks（启发式优化越狱）
 
-Jailbreak construction is formulated as a search or optimization problem, with gradient search, genetic algorithms, black-box iteration, or prompt mutation used to generate attacks automatically.
+将越狱提示构造转化为搜索或优化问题，利用梯度搜索、遗传算法、黑盒迭代或提示变异自动生成攻击输入。
 
 - (2024) [Imprompter: Tricking LLM Agents into Improper Tool Use](https://arxiv.org/abs/2410.14923)
 - (2025) [STAC: When Innocent Tools Form Dangerous Chains to Jailbreak LLM Agents](https://arxiv.org/abs/2509.25624)
@@ -138,9 +138,9 @@ Jailbreak construction is formulated as a search or optimization problem, with g
 - (2023) [AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models](https://arxiv.org/abs/2310.04451)
 - (2023) [Jailbreaking Black Box Large Language Models in Twenty Queries (PAIR)](https://arxiv.org/abs/2310.08419)
 
-### Agentic Red-Teaming for Jailbreak
+### Agentic Red-Teaming for Jailbreak（智能体化自动红队）
 
-Attack agents use task decomposition, feedback evaluation, self-reflection, memory, and multi-turn optimization to autonomously discover strategies that induce a target agent to complete complex harmful tasks.
+攻击智能体通过任务分解、反馈评估、自我反思、记忆和多轮优化，自主寻找能诱导目标智能体完成复杂有害任务的策略。
 
 - (2025) [Agent vs. Agent: Automated Data Generation and Red-Teaming for Custom Agentic Workflows (Red-Agent-Reflect)](https://aclanthology.org/2025.emnlp-industry.62/)
 - (2024) [RedAgent: Red Teaming Large Language Models with Context-Aware Autonomous Language Agent](https://arxiv.org/abs/2407.16667)
@@ -150,13 +150,13 @@ Attack agents use task decomposition, feedback evaluation, self-reflection, memo
 
 <a id="long-term-memory-risks"></a>
 
-## 1.3 Long-Term Memory Risks
+## 1.3 Long-Term Memory Risks（长期记忆风险）
 
-Long-term memories are automatically retrieved and reused as trusted context in future sessions. A single poisoning event can therefore cause stealthy, persistent, and transmissible behavioral manipulation.
+长期记忆会在未来会话中被自动检索并作为可信上下文重复使用，因此一次投毒可能形成隐蔽、持久且可传播的行为操纵。
 
-### Direct Long-Term Memory Poisoning
+### Direct Long-Term Memory Poisoning（直接长期记忆投毒）
 
-Attackers directly contaminate RAG corpora, knowledge bases, retrieval indexes, graph structures, or retrieved evidence so that malicious content is recalled by future queries.
+攻击者直接污染 RAG 语料、知识库、检索索引、图结构或检索证据，使恶意内容在未来查询中被召回。
 
 - (2024) [PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation of Large Language Models](https://arxiv.org/abs/2409.02354)
 - (2025) [Corpus Poisoning via Approximate Greedy Gradient Descent (AGGD)](https://aclanthology.org/2025.findings-acl.222/)
@@ -169,29 +169,29 @@ Attackers directly contaminate RAG corpora, knowledge bases, retrieval indexes, 
 - (2026) [KEPo: Knowledge Evolution Poison on Graph-Based Retrieval-Augmented Generation](https://arxiv.org/abs/2603.11501)
 - (2025) [Topic-FlipRAG: Topic-Orientated Adversarial Opinion Manipulation Attacks to RAG](https://arxiv.org/abs/2502.01386)
 
-### Indirect Interaction-Based Memory Injection
+### Indirect Interaction-Based Memory Injection（基于交互的间接记忆注入）
 
-Rather than modifying storage directly, an attacker uses ordinary dialogues, queries, web observations, or environmental content to induce the agent to write malicious information into long-term memory.
+攻击者不直接修改存储，而是通过正常对话、查询、网页观察或环境内容，诱导智能体把恶意信息写入长期记忆。
 
 - (2025) [Memory Injection Attacks on LLM Agents via Query-Only Interaction (MINJA)](https://arxiv.org/abs/2503.03704)
 - (2026) [Poison Once, Exploit Forever: Environment-Injected Memory Poisoning Attacks on Web Agents (eTAMP)](https://arxiv.org/abs/2604.02623)
 
-### Backdoor Attacks
+### Backdoor Attacks（后门攻击）
 
-Malicious memories remain dormant under ordinary inputs and perform targeted manipulation only when a particular trigger, query, topic, or contextual pattern appears.
+恶意记忆在普通输入下保持休眠，仅在特定触发词、目标查询、主题或上下文模式出现时执行定向操纵。
 
 - (2024) [AgentPoison: Red-Teaming LLM Agents via Poisoning Memory or Knowledge Bases](https://arxiv.org/abs/2407.12784)
 - (2025) [PR-Attack: Coordinated Prompt-RAG Attacks via Bilevel Optimization](https://arxiv.org/abs/2504.07717)
 
 <a id="environment-side-attacks"></a>
 
-## 1.4 Environment-Side Attacks
+## 1.4 Environment-Side Attacks（环境侧攻击）
 
-Attackers manipulate web pages, documents, GUIs, terminals, APIs, or tool results perceived by an agent, causing untrusted data to be interpreted as high-priority instructions.
+攻击者操纵智能体所感知的网页、文档、GUI、终端、API 或工具返回值，使非可信数据被误当作高优先级指令。
 
-### Web Injection Attacks
+### Web Injection Attacks（Web 注入攻击）
 
-Malicious instructions are embedded in HTML, CSS, hidden text, images, PDFs, forms, or other web elements to hijack browsing agents.
+恶意指令被嵌入 HTML、CSS、隐藏文本、图片、PDF、表单或其他网页元素，进而劫持浏览智能体。
 
 - (2025) [EIA: Environmental Injection Attack on Generalist Web Agents for Privacy Leakage](https://openreview.net/forum?id=xMOLUzo2Lk)
 - (2025) [WASP: Benchmarking Web Agent Security against Prompt Injection Attacks](https://arxiv.org/abs/2504.18575)
@@ -199,9 +199,9 @@ Malicious instructions are embedded in HTML, CSS, hidden text, images, PDFs, for
 - (2024) [Dissecting Adversarial Robustness of Multimodal LM Agents (VisualWebArena-Adv)](https://arxiv.org/abs/2406.12814)
 - (2026) [MUZZLE: Adaptive Agentic Red-Teaming of Web Agents against Indirect Prompt Injection Attacks](https://arxiv.org/abs/2602.09222)
 
-### Malicious Injection in Computer-Use Environments
+### Malicious Injection in Computer-Use Environments（计算机使用环境恶意注入）
 
-Files, terminal output, notifications, pop-ups, screenshots, buttons, and mobile overlays manipulate the perception, grounding, and system operations of GUI or OS agents.
+通过文件、终端输出、通知、弹窗、截图、按钮或移动端覆盖层操纵 GUI/OS 智能体的感知、定位与系统操作。
 
 - (2025) [OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents](https://arxiv.org/abs/2506.14866)
 - (2025) [RedTeamCUA: Realistic Adversarial Testing of Computer-Use Agents in Hybrid Web-OS Environments](https://arxiv.org/abs/2505.21936)
@@ -211,9 +211,9 @@ Files, terminal output, notifications, pop-ups, screenshots, buttons, and mobile
 - (2025) [Attacking Vision-Language Computer Agents via Pop-Ups](https://aclanthology.org/2025.acl-long.411/)
 - (2025) [Evaluating the Robustness of Multimodal Agents against Active Environmental Injection Attacks (AEIA)](https://arxiv.org/abs/2503.02539)
 
-### Tool-Output Injection
+### Tool-Output Injection（工具输出注入）
 
-Malicious instructions arrive through search results, API responses, database records, emails, command output, or MCP server responses and influence subsequent planning and tool calls.
+恶意指令来自搜索结果、API 响应、数据库记录、邮件、命令输出或 MCP 服务返回值，并影响后续规划和工具调用。
 
 - (2024) [InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated LLM Agents](https://arxiv.org/abs/2403.02691)
 - (2024) [ToolSword: Unveiling Safety Issues of Large Language Models in Tool Learning across Three Stages](https://arxiv.org/abs/2402.10753)
@@ -228,15 +228,15 @@ Malicious instructions arrive through search results, API responses, database re
 
 # 2. Security Evaluation Benchmarks
 
-Safety evaluation has moved from static response checking to behavioral assessment. It now examines not only whether an agent generates harmful text, but also whether its tool calls, interaction trajectory, and final environment state are safe.
+安全评测已从静态回复检测转向行为级评估：不仅判断智能体是否生成有害文本，还检查其工具调用、交互轨迹和最终环境状态是否安全。
 
 <a id="domain-specific-agent-safety-benchmarks"></a>
 
-## 2.1 Domain-Specific Agent Safety Benchmarks
+## 2.1 Domain-Specific Agent Safety Benchmarks（领域专用智能体安全基准）
 
-### Tool-Use Safety Benchmarks
+### Tool-Use Safety Benchmarks（工具调用安全）
 
-These benchmarks evaluate malicious user requests, tool-output injection, tool and protocol metadata poisoning, dangerous arguments, and final execution states.
+评测恶意用户请求、工具输出注入、工具/协议元数据投毒、危险参数以及最终执行状态。
 
 - (2023) [Identifying the Risks of LM Agents with an LM-Emulated Sandbox (ToolEmu)](https://arxiv.org/abs/2309.15817)
 - (2024) [InjecAgent](https://arxiv.org/abs/2403.02691)
@@ -251,17 +251,17 @@ These benchmarks evaluate malicious user requests, tool-output injection, tool a
 - (2025) [MCPSecBench](https://arxiv.org/abs/2508.13220)
 - (2026) [AgentLAB: Benchmarking LLM Agents against Long-Horizon Attacks](https://arxiv.org/abs/2602.16901)
 
-### Web-Browsing Safety Benchmarks
+### Web-Browsing Safety Benchmarks（Web 浏览安全）
 
-These benchmarks evaluate indirect prompt injection, malicious user abuse, policy violations, completion of page-level attacker goals, and final web states.
+评测网页间接提示注入、恶意用户滥用、策略违规、页面级攻击目标完成度及最终网页状态。
 
 - (2025) [WASP: Benchmarking Web Agent Security against Prompt Injection Attacks](https://arxiv.org/abs/2504.18575)
 - (2024) [ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents](https://arxiv.org/abs/2410.06703)
 - (2025) [SafeArena: Evaluating the Safety of Autonomous Web Agents](https://arxiv.org/abs/2503.04957)
 
-### Computer and Mobile Operation Safety Benchmarks
+### Computer and Mobile Operation Safety Benchmarks（计算机与移动端操作安全）
 
-These benchmarks evaluate GUI perception, cross-application interaction, file and terminal operations, sensitive permissions, irreversible actions, and persistent environmental side effects.
+评测 GUI 感知、跨应用交互、文件与终端操作、敏感权限、不可逆动作和持久环境副作用。
 
 - (2025) [OS-Harm](https://arxiv.org/abs/2506.14866)
 - (2025) [RiOSWorld](https://arxiv.org/abs/2506.00618)
@@ -272,11 +272,11 @@ These benchmarks evaluate GUI perception, cross-application interaction, file an
 
 <a id="generalist-agent-safety-benchmarks"></a>
 
-## 2.2 Generalist Agent Safety Benchmarks
+## 2.2 Generalist Agent Safety Benchmarks（通用智能体安全基准）
 
-### Skill-Based Agent Behavioral Safety Benchmarks
+### Skill-Based Agent Behavioral Safety Benchmarks（基于技能的行为安全）
 
-Given a user task and one or more skills, the agent executes the task in an environment. Safety is judged from responses, tool evidence, or final state changes across the skill-mediated execution.
+给定用户任务和一个或多个技能，让智能体真实执行任务，并依据回复、工具证据或最终状态判断技能介导的执行是否安全。
 
 - (2026) [Skill-Inject](https://arxiv.org/abs/2602.20156)
 - (2026) [SkillSafetyBench](https://arxiv.org/abs/2605.12015)
@@ -288,9 +288,9 @@ Given a user task and one or more skills, the agent executes the task in an envi
 - (2026) [SkillHarm](https://arxiv.org/abs/2606.02540)
 - (2026) [SkillTrojan](https://arxiv.org/abs/2604.06811)
 
-### Malicious Skill Detection Benchmarks
+### Malicious Skill Detection Benchmarks（恶意技能检测）
 
-Instead of executing a user task, these benchmarks ask a rule system, model, static analyzer, or verifier to inspect the skill package itself and detect semantic, code-level, and mixed attacks.
+不执行用户任务，而是让规则、模型、静态分析器或验证器检查技能包本身，评测其对语义级、代码级和混合攻击的检测能力。
 
 - (2026) [Agent Skills in the Wild: An Empirical Study of Security Vulnerabilities at Scale](https://arxiv.org/abs/2601.10338)
 - (2026) [SkillSieve: A Hierarchical Triage Framework for Detecting Malicious AI Agent Skills](https://arxiv.org/abs/2604.06550)
@@ -299,19 +299,19 @@ Instead of executing a user task, these benchmarks ask a rule system, model, sta
 
 <a id="offline-trajectory-auditing"></a>
 
-## 2.3 Offline Trajectory Auditing
+## 2.3 Offline Trajectory Auditing（离线轨迹审计）
 
-### Trajectory-Level Safety Detection
+### Trajectory-Level Safety Detection（轨迹级安全检测）
 
-Complete multi-step interaction records are provided to safety judges, which must detect gradually emerging risks, localize risky steps, and explain causal chains.
+输入完整多步交互记录，评测安全评判器能否发现渐进式风险、定位危险步骤并解释因果链。
 
 - (2024) [R-Judge: Benchmarking Safety Risk Awareness for LLM Agents](https://arxiv.org/abs/2401.10019)
 - (2025) [AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents (ASSEBench)](https://arxiv.org/abs/2506.00641)
 - (2026) [ATBench: A Diverse and Realistic Agent Trajectory Benchmark for Safety Evaluation and Diagnosis](https://arxiv.org/abs/2604.02022)
 
-### Step-Level Safety Detection
+### Step-Level Safety Detection（步骤级安全检测）
 
-Given the current context and a candidate action, the evaluator decides before execution whether a browser action, code command, or tool call should be allowed, blocked, or verified further.
+输入当前上下文与候选动作，在执行前判断单个浏览、代码或工具调用是否应允许、阻止或进一步验证。
 
 - (2025) [AGrail: A Lifelong Agent Guardrail with Effective and Adaptive Safety Detection (Safe-OS)](https://arxiv.org/abs/2502.11448)
 - (2025) [ShieldAgent: Shielding Agents via Verifiable Safety Policy Reasoning (ShieldAgent-Bench)](https://arxiv.org/abs/2503.22738)
@@ -325,20 +325,20 @@ Given the current context and a candidate action, the evaluator decides before e
 
 <a id="input-and-context-filtering"></a>
 
-## 3.1 Input and Context Filtering
+## 3.1 Input and Context Filtering（输入与上下文过滤）
 
-### Skill Risk Scanning
+### Skill Risk Scanning（技能风险扫描）
 
-Before a skill is installed, integrated, or invoked, scanners jointly inspect natural-language declarations, permissions, dependencies, executable scripts, and cross-skill data flows.
+在安装、集成或调用技能前，联合检查自然语言声明、权限、依赖、可执行脚本及跨技能数据流。
 
 - (2026) [ClawVet: 6-Pass Security Scanner for OpenClaw Skills](https://www.npmjs.com/package/clawvet)
 - (2026) [Agent Skills in the Wild / SkillScan](https://arxiv.org/abs/2601.10338)
 - (2026) [SkillSieve](https://arxiv.org/abs/2604.06550)
 - (2026) [SkillProbe: Security Auditing for Emerging Agent Skill Marketplaces via Multi-Agent Collaboration](https://arxiv.org/abs/2603.21019)
 
-### Prompt Injection and Jailbreak Guardrails
+### Prompt Injection and Jailbreak Guardrails（提示注入与越狱护栏）
 
-Lightweight detectors or safety classifiers are deployed at boundaries around user inputs, retrieved content, web data, tool outputs, and model responses.
+在用户输入、检索内容、网页数据、工具输出和模型回复等边界部署轻量检测器或安全分类器。
 
 - (2025) [Llama Prompt Guard 2](https://github.com/meta-llama/PurpleLlama/tree/main/Llama-Prompt-Guard-2)
 - (2025) [PIGuard: Prompt Injection Guardrail via Mitigating Overdefense for Free](https://aclanthology.org/2025.acl-long.1468/)
@@ -350,9 +350,9 @@ Lightweight detectors or safety classifiers are deployed at boundaries around us
 - (2026) [SingGuard-NSFA: Extensible Guardrails for Agentic AI](https://arxiv.org/abs/2607.13081)
 - (2025) [ShieldHead: Decoding-Time Safeguard for Large Language Models](https://aclanthology.org/2025.findings-acl.932/)
 
-### Memory Guardrails
+### Memory Guardrails（记忆护栏）
 
-These defenses cover memory writing, retrieval, reasoning, and recovery through provenance verification, consistency checking, anomaly detection, causal auditing, and robustness certification.
+覆盖记忆写入、检索、推理和恢复阶段，结合来源验证、一致性检查、异常检测、因果审计与鲁棒性认证。
 
 - (2025) [A-MemGuard: Defending against Memory Poisoning in LLM Agents](https://arxiv.org/abs/2510.02373)
 - (2026) [Your Agent's Memories Are Not Its Own: Forged Reasoning Attacks on LLM Agent Memory and Defenses (SENTINEL)](https://arxiv.org/abs/2607.05029)
@@ -364,11 +364,11 @@ These defenses cover memory writing, retrieval, reasoning, and recovery through 
 
 <a id="decision-and-control-integrity"></a>
 
-## 3.2 Decision and Control Integrity
+## 3.2 Decision and Control Integrity（决策与控制完整性）
 
-### Harness-Externalized Defenses
+### Harness-Externalized Defenses（Harness 外置防御）
 
-The orchestration layer outside the model restructures or isolates untrusted context and constrains planning and control flow through task alignment, tool dependency graphs, and information-flow control.
+在模型外部的编排层重构或隔离不可信上下文，并以任务对齐、工具依赖图、信息流控制等方式约束规划和控制流。
 
 - (2024) [Defending against Indirect Prompt Injection Attacks with Spotlighting](https://arxiv.org/abs/2403.14720)
 - (2024) [StruQ: Defending against Prompt Injection with Structured Queries](https://arxiv.org/abs/2402.06363)
@@ -376,9 +376,9 @@ The orchestration layer outside the model restructures or isolates untrusted con
 - (2025) [IPIGuard: A Tool Dependency Graph-Based Defense against Indirect Prompt Injection](https://aclanthology.org/2025.emnlp-main.53/)
 - (2025) [Defeating Prompt Injections by Design (CaMeL)](https://arxiv.org/abs/2503.18813)
 
-### Alignment-Internalized Defenses
+### Alignment-Internalized Defenses（模型对齐内化防御）
 
-Instruction hierarchy training, supervised fine-tuning, preference optimization, and reinforcement learning internalize trust priorities and safe tool-use policies within the model's decision policy.
+通过指令层级训练、监督微调、偏好优化或强化学习，把可信优先级和安全工具使用策略内化到模型决策策略中。
 
 - (2024) [The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions](https://arxiv.org/abs/2404.13208)
 - (2024) [SecAlign: Defending against Prompt Injection with Preference Optimization](https://arxiv.org/abs/2410.05451)
@@ -390,17 +390,17 @@ Instruction hierarchy training, supervised fine-tuning, preference optimization,
 
 <a id="runtime-monitoring-and-enforcement"></a>
 
-## 3.3 Runtime Monitoring and Enforcement
+## 3.3 Runtime Monitoring and Enforcement（运行时监控与执行约束）
 
-### Planning-Stage Auditing
+### Planning-Stage Auditing（规划阶段审计）
 
-Complete plans are checked before any external action executes to identify dangerous goals, privilege violations, and hazardous action compositions.
+在任何外部动作执行前检查完整计划，识别危险目标、权限违规和高风险动作组合。
 
 - (2025) [Building a Foundational Guardrail for General Agentic Systems via Synthetic Data (Safiron)](https://arxiv.org/abs/2510.09781)
 
-### Step-Level Monitoring
+### Step-Level Monitoring（步骤级监控）
 
-Before each tool call or environment action is committed, the system inspects the reasoning state, action semantics, and arguments, then blocks, corrects, confirms, or formally verifies the action.
+在每次工具调用或环境动作提交前审查推理状态、动作语义和参数，并进行阻止、修正、确认或形式化验证。
 
 - (2025) [AGrail](https://arxiv.org/abs/2502.11448)
 - (2024) [GuardAgent: Safeguard LLM Agents by a Guard Agent via Knowledge-Enabled Reasoning](https://arxiv.org/abs/2406.09187)
@@ -413,9 +413,9 @@ Before each tool call or environment action is committed, the system inspects th
 - (2025) [VeriGuard: Enhancing LLM Agent Safety via Verified Code Generation](https://arxiv.org/abs/2510.05156)
 - (2026) [VIGIL: Defending LLM Agents against Tool Stream Injection via Verify-Before-Commit](https://arxiv.org/abs/2601.05755)
 
-### Trajectory-Level Review
+### Trajectory-Level Review（轨迹级复核）
 
-Partial or complete execution histories are analyzed to detect cross-step privilege escalation, cross-tool information leakage, and cumulative policy violations, supporting root-cause diagnosis and continual improvement.
+分析部分或完整执行历史，以发现跨步骤权限升级、跨工具信息泄露和累积性策略违规，并支持根因诊断与持续改进。
 
 - (2025) [AgentAuditor](https://arxiv.org/abs/2506.00641)
 - (2026) [AgentDoG 1.5: A Lightweight and Scalable Alignment Framework for AI Agent Safety and Security](https://arxiv.org/abs/2605.29801)
@@ -427,19 +427,19 @@ Partial or complete execution histories are analyzed to detect cross-step privil
 
 # 4. Research Outlook
 
-The survey summarizes future research as a closed loop of **risk generation, risk diagnosis, and safety evolution**:
+综述将未来方向概括为一个“风险生成—风险诊断—安全演化”的闭环：
 
-1. **Automatic Generation of Adversarial Environments and Safety Data**: automatically construct executable, verifiable, and continuously evolving adversarial environments and safety data;
-2. **Fine-Grained Safety Attribution over Agent Trajectories**: localize risk sources, critical steps, and causal chains along long-horizon interaction trajectories;
-3. **Adversarial-Feedback-Driven Continual Safety Evolution**: convert emerging attacks and failure trajectories into training feedback so safety policies can continually evolve.
+1. **Automatic Generation of Adversarial Environments and Safety Data**：自动构造可执行、可验证且持续演化的对抗环境与安全数据；
+2. **Fine-Grained Safety Attribution over Agent Trajectories**：沿长程交互轨迹定位风险来源、关键步骤与因果链；
+3. **Adversarial-Feedback-Driven Continual Safety Evolution**：把新攻击与失败轨迹转化为训练反馈，使安全策略持续更新。
 
 ## Citation
 
-If this list supports your research, please cite the original survey and the corresponding papers. The survey's formal BibTeX entry can be added here once it becomes available.
+如本列表对你的研究有帮助，请优先引用原综述及对应论文。原综述的正式 BibTeX 信息发布后，可在此处补充。
 
 ## Contributing
 
-Issues and pull requests that add new papers, code repositories, datasets, or corrections are welcome. Please follow the existing taxonomy and use this format:
+欢迎通过 Issue 或 Pull Request 补充新论文、代码仓库、数据集与勘误。建议沿用现有分类，并使用以下格式：
 
 ```markdown
 - (Year) [Paper Title](Paper URL)
