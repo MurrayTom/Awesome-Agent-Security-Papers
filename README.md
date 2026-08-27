@@ -6,7 +6,7 @@
 
 [中文](./README.md) | [English](./README_EN.md)
 
-[Survey PDF]([./Pandora-agent-survey.pdf](https://openreview.net/forum?id=A0KU8ja2mo)) · [Reference README](./README_reference.md)
+[Survey PDF](https://openreview.net/forum?id=A0KU8ja2mo) · [Reference README](./README_reference.md)
 
 </div>
 
