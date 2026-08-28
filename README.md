@@ -12,7 +12,7 @@
 
 🌐 **Language / 语言:** **English** · [**简体中文**](./README_CN.md)
 
-[**Paper**](<./Pandora-agent-survey (Arxiv).pdf>) · [**Taxonomy**](#the-lifecycle-perspective) · [**Contributing**](#contributing)
+[**Paper**](https://openreview.net/forum?id=A0KU8ja2mo) · [**Taxonomy**](#the-lifecycle-perspective) · [**Contributing**](#contributing)
 
 </div>
 
