@@ -367,6 +367,7 @@
 - (2025) [MCP-SafetyBench](https://arxiv.org/abs/2512.15163)
 - (2025) [MCP Security Bench (MSB)](https://arxiv.org/abs/2510.15994)
 - (2025) [MCPSecBench](https://arxiv.org/abs/2508.13220)
+- (2025) [A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents (ODCV-Bench)](https://arxiv.org/abs/2512.20798)
 - (2026) [AgentLAB: Benchmarking LLM Agents against Long-Horizon Attacks](https://arxiv.org/abs/2602.16901)
 
 </details>
